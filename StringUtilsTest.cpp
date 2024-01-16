@@ -54,25 +54,48 @@ TEST(StringUtilsTest, Strip){
     ASSERT_EQ("Hello", StringUtils::Strip("   Hello   "));
     ASSERT_EQ("NoSpaces", StringUtils::Strip("NoSpaces"));
     ASSERT_EQ("Tabs", StringUtils::Strip("  Tabs    "));
+
 }
 
 TEST(StringUtilsTest, Center){
-    
+    ASSERT_EQ("Evenwidth", StringUtils::Center("Evenwidth", 9));
+    ASSERT_EQ("   Even   ", StringUtils::Center("Even", 10));
+    ASSERT_EQ("  Od ", StringUtils::Center("Od", 5));
+
 }
 
 TEST(StringUtilsTest, LJust){
+    ASSERT_EQ("     ", StringUtils::LJust("", 5));
+    ASSERT_EQ("Five     ", StringUtils::LJust("Five", 9));
+    ASSERT_EQ("NoAdd", StringUtils::LJust("NoAdd", 5));
+    ASSERT_EQ("3Left   ", StringUtils::LJust("   3Left", 8));
+    ASSERT_EQ("2LR     ", StringUtils::LJust("  2LR  ", 8));
     
 }
 
 TEST(StringUtilsTest, RJust){
+    ASSERT_EQ("     ", StringUtils::RJust("", 5));
+    ASSERT_EQ("     Five", StringUtils::RJust("Five", 9));
+    ASSERT_EQ("NoAdd", StringUtils::RJust("NoAdd", 5));
+    ASSERT_EQ("    3Left", StringUtils::RJust("   3Left", 9));
+    ASSERT_EQ("       2LR", StringUtils::RJust("  2LR  ", 10));
     
 }
 
 TEST(StringUtilsTest, Replace){
-    
+    ASSERT_EQ("Nothing", StringUtils::Replace("Nothing", "aaa", "bbb"));
+    ASSERT_EQ("EVERYTHING", StringUtils::Replace("Everything", "Everything", "EVERYTHING"));
+    ASSERT_EQ("1Letter", StringUtils::Replace("1Lxttxr", "x", "e"));
+    ASSERT_EQ("3xxxaa", StringUtils::Replace("3aaaaaa", "aaa", "xxx"));
+    ASSERT_EQ("Difxth", StringUtils::Replace("Diflength", "leng", "x"));
 }
 
 TEST(StringUtilsTest, Split){
+    //ASSERT_EQ(<"NoSplit">, StringUtils::Split("NoSplit", "x"));
+    //ASSERT_EQ("<'la', 'la', 'la'>", StringUtils::Split("laxlaxlax", "x"));
+    //ASSERT_EQ(<"this", "was", "split">, StringUtils::Split("this was split", ""));
+    //ASSERT_EQ(<"irst">, StringUtils::Split("First", "F"));
+    //ASSERT_EQ(<"Las">, StringUtils::Split("Last", "t"));
     
 }
 
